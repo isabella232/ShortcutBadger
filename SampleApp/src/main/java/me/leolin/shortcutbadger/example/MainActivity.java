@@ -25,20 +25,16 @@ public class MainActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    int badgeCount = 0;
-                    try {
-                        badgeCount = Integer.parseInt(numInput.getText().toString());
-                    } catch (NumberFormatException e) {
-                        Toast.makeText(getApplicationContext(), "Error input", Toast.LENGTH_SHORT).show();
-                    }
+              int badgeCount = 0;
+              try {
+                badgeCount = Integer.parseInt(numInput.getText().toString());
+              } catch (NumberFormatException e) {
+                Toast.makeText(getApplicationContext(), "Error input", Toast.LENGTH_SHORT).show();
+              }
 
-                    ShortcutBadger.setBadge(getApplicationContext(), badgeCount);
+              ShortcutBadger.setBadge(getApplicationContext(), badgeCount);
 
-                    Toast.makeText(getApplicationContext(), "Set count=" + badgeCount, Toast.LENGTH_SHORT).show();
-                } catch (ShortcutBadgeException e) {
-                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+              Toast.makeText(getApplicationContext(), "Set count=" + badgeCount, Toast.LENGTH_SHORT).show();
             }
         });
     }

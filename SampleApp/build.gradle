@@ -1,15 +1,19 @@
-apply plugin: 'android'
-
-repositories {
-    jcenter()
-    maven {
-        url 'file://'+project.rootDir+"/ShortcutBadger-aar"
+buildscript {
+    repositories {
+        maven {
+            url "https://repo1.maven.org/maven2"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
     }
 }
 
+apply plugin: 'com.android.application'
+
 android {
-    compileSdkVersion 19
-    buildToolsVersion "20.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
         applicationId "me.leolin.shortcutbadger.example"
@@ -18,16 +22,8 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    buildTypes {
-        release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
-
-
 dependencies {
-    compile 'me.leolin:ShortcutBadger:1.0.2@aar'
+    compile project(':ShortcutBadger')
 }
