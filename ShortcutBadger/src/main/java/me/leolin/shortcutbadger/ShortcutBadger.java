@@ -45,7 +45,7 @@ public abstract class ShortcutBadger {
     protected abstract void executeBadge(int badgeCount) throws ShortcutBadgeException;
 
     public static void setBadge(Context context, int badgeCount) {
-        badgeCount = Math.max(Math.min(MIN_BADGE_COUNT, badgeCount), MAX_BADGE_COUNT);
+        badgeCount = Math.min(Math.max(MIN_BADGE_COUNT, badgeCount), MAX_BADGE_COUNT);
 
         //find the home launcher Package
         Intent intent = new Intent(Intent.ACTION_MAIN);
